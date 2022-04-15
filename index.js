@@ -26,6 +26,7 @@ const fetchPost = async () => {
   userPost = await fetchPost();
 })();
 
+//return user post
 const displayPost = (userID) => {
   if (userID == "Choose") return;
 
@@ -45,6 +46,7 @@ const displayPost = (userID) => {
   UserPostList.innerHTML = list;
 };
 
+//return dropdown with users
 const displayDropdown = () => {
   let list = '<select id="userSelect" onchange="displayPost(this.value)">';
   list += '<option value="Choose" selected="selected">Choose</option>';
