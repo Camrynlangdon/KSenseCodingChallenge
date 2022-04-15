@@ -1,0 +1,80 @@
+/*  
+Template Name: Simple Jojo
+Version: 1.0
+Author: My Green Corner
+Author URI: http://www.mygreencorner.com/
+*/
+
+html, body {
+	font-family: Georgia;
+	border: 0;
+	color: #C7C7C7;
+	background: #1D211A;
+}
+
+body {
+	
+}
+
+body, p, h1, h2, h3, h4, h5, ul, ol, li, form, blockquote {
+	margin: 0;
+	padding: 0;
+}
+
+h1, h3, h4 {
+	padding: 10px 0;
+}
+
+ul {
+	list-style: none;
+	
+}
+
+li{
+	border: 2px outset black;
+	border-radius: 13px;
+	padding: 10px;
+	background-color: black;
+}
+
+blockquote {
+	font-size: 13px;
+	line-height: 22px;
+	padding: 10px 25px;
+	margin: 0 auto;
+	width: 430px;
+}
+
+blockquote p {
+	font-style: italic;
+	color: #979797 !important;
+}
+
+blockquote blockquote {
+	width: 90%;
+}
+
+blockquote blockquote p {
+	color: #CACACA !important;
+}
+
+a {
+	text-decoration:  none;
+	color: #4C772B;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+.userPost {
+	margin: auto;
+	padding: 10px;
+	text-align: center;
+}
+
+.mainContainer{
+	margin: auto;
+  	width: 50%;
+	padding: 10px;
+}
