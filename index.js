@@ -1,69 +1,57 @@
-let UserPostList = document.getElementById("Usercontent");
+let UserPostList = document.getElementById("userContent");
 let UserDropdown = document.getElementById("userDropdown");
-let users = {}; //list of users
-let userPost = {}; //post json
+let users = {};
+let userPost = {};
 
 const fetchUsers = async () => {
   const response = await fetch("https://jsonplaceholder.typicode.com/users");
   const myJson = await response.json(); //extract JSON from the http response
-  // do something with myJson
   return await myJson;
 };
 
-//anonymous function for User API
+//initial load of users from api
 (async () => {
   users = await fetchUsers();
-  console.log(await fetchUsers());
   await displayDropdown();
 })();
 
-//fetch post for users
 const fetchPost = async () => {
   const response = await fetch("https://jsonplaceholder.typicode.com/posts");
   const myJson = await response.json(); //extract JSON from the http response
-  // do something with myJson
   return await myJson;
 };
 
-//anonymous function for post API
+//initial load of posts from api
 (async () => {
   userPost = await fetchPost();
 })();
 
-//select function for dropdown
-const getPost = (name) => {
-  if (name == "Choose") return;
-  displayPost();
-};
+const displayPost = (userID) => {
+  if (userID == "Choose") return;
 
-//build list of post and display
-const displayPost = () => {
   let list = "<ul>";
 
-  //loop though post and build html list
   for (let i = 0; i < userPost.length; i++) {
+    if (userPost[i].userId != userID) continue;
     list +=
       "<li>" +
-      i +
-      " - " +
       userPost[i].title +
       "<br></br>" +
       userPost[i].body +
       "</li>" +
       "<br></br>";
   }
-
   list += "</ul>";
-
   UserPostList.innerHTML = list;
 };
 
 const displayDropdown = () => {
-  let list = '<select id="userSelect" onchange="getPost(this.value)">';
+  let list = '<select id="userSelect" onchange="displayPost(this.value)">';
   list += '<option value="Choose" selected="selected">Choose</option>';
 
   for (let i = 0; i < users.length; i++) {
-    list += '<option value="${users[i].id}">' + users[i].name + "</option>";
+    list +=
+      '<option value="' + users[i].id + '">' + users[i].name + "</option>";
   }
 
   list += "</select>";
