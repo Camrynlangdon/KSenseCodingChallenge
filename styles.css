@@ -4,6 +4,7 @@ html, body {
 	border: 0;
 	color: #C7C7C7;
 	background: #383838;
+	height: 100%;
 }
 
 body, p, h1, h2, h3, h4, h5, ul, ol, li, form, blockquote {
